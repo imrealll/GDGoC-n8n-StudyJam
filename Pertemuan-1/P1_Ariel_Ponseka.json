@@ -1,0 +1,101 @@
+{
+  "name": "P1_Ariel_Ponseka",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "P1-test",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "5681a398-6027-4611-a851-e0636afc3ede",
+      "name": "Webhook",
+      "webhookId": "01fa758a-ee4d-4b1c-9917-d4d8b144bad6"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "88ba48bb-3f07-4c7d-9a1a-4f9371b47664",
+              "name": "status",
+              "value": "SUCCESS EUY!",
+              "type": "string"
+            },
+            {
+              "id": "d6f1a94d-a937-48ef-a915-0cf6e615529c",
+              "name": "message",
+              "value": "=Terima kasih {{ $json.body.Nama }} , {{ $json.body.Pesan }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        240,
+        0
+      ],
+      "id": "6b3c6b42-e6a2-427e-8d57-2c603d66e643",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        464,
+        0
+      ],
+      "id": "477c62e4-10b5-4334-8cf6-80dee0618a58",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "6bc96c0d-a755-485c-a657-30b3d5953246",
+  "meta": {
+    "instanceId": "86ace446e7a36ede704ec7d504b782ac809aabc2fbf9fe862a7f20bb730a9ab9"
+  },
+  "nodeGroups": [],
+  "id": "MhaBGGfd6yXXQsFd",
+  "tags": []
+}
